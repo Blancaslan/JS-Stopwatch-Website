@@ -1,4 +1,4 @@
-.outerbox {
+.box {
     margin: 5px;
     height: 7em;
     width: 20em;
@@ -6,7 +6,7 @@
     border-radius: 50%;
 }
 
-.startstop {
+.text {
     text-align: center;
     padding: 0px;
 }

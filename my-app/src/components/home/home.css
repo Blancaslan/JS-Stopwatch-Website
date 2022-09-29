@@ -1,5 +1,22 @@
 .Grid {
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backbox {
+    width: 60vw;
+    height: 60vh;
+    background-color: darkgrey;
+    position: relative;
+    text-align: center;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0;
+    left: 10em;
 }

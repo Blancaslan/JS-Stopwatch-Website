@@ -7,10 +7,14 @@ let intervalID
 export default function Home() {
     return(
         <div className="Grid">
-            <CustomButton text={"Stop"} onClick={stop}></CustomButton>
-            <CustomButton text={"Start"} onClick={start}></CustomButton>
-            <CustomButton text={"Reset"} onClick={reset}></CustomButton>
-            <h1 id="count">{counter}</h1>
+            <div className="backbox">
+                <div className="buttons">
+                    <CustomButton text={"Stop"} onClick={stop} backgroundColor="red"></CustomButton>
+                    <CustomButton text={"Start"} onClick={start} backgroundColor="lightgreen"></CustomButton>
+                    <CustomButton text={"Reset"} onClick={reset} backgroundColor="orange"></CustomButton>
+                    <h1 id="count">{counter}</h1>
+                </div>
+            </div>
         </div>
     )
 }

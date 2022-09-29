@@ -1,0 +1,12 @@
+.outerbox {
+    margin: 5px;
+    height: 7em;
+    width: 20em;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.startstop {
+    text-align: center;
+    padding: 0px;
+}

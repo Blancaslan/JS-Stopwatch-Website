@@ -1,9 +1,13 @@
 import './button.css'
 
-export default function CustomButton() {
+export default function CustomButton({mainText}) {
     return (
-        <button className="outerbox" onclick="startstop">
-            <h1 className="startstop">Start/Stop</h1>
+        <button className="outerbox" onClick={watchfunction}>
+            <h1 className="startstop">{mainText}</h1>
         </button>
     )
+}
+
+function watchfunction() { 
+    alert("Hello")
 }

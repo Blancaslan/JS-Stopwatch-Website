@@ -1,12 +1,10 @@
 import './App.css';
-import CustomButton from './components/button/button';
+import Home from './components/home/home'
 
-function App() {
+export default function App() {
   return (
     <div>
-      <CustomButton onclick="Hello my ladies"></CustomButton>
+      <Home></Home>
     </div>
-  );
+  )
 }
-
-export default App;

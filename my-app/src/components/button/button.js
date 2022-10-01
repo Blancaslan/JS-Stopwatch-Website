@@ -1,4 +1,7 @@
 import './button.css'
+import React from 'react';
+
+
 
 export default function Button({text, onClick, backgroundColor}) {
     return (

@@ -3,3 +3,9 @@
     height: 60vh;
     background-color: black;
 }
+
+@media (max-width: 1000px) and (min-width: 700px) {
+    .backbox {
+        width: 50vw;
+    }
+}

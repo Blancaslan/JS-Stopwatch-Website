@@ -3,10 +3,10 @@ import CustomButton from '../button/button';
 import React  from 'react';
 
 
-let counter = 0
-let increment
-let Second = '00'
-let Minute = '00'
+let second = 0
+let timer
+let Minute
+let Second
 let intervalID
 
 export default function Home() {
@@ -27,10 +27,10 @@ export default function Home() {
 function start() {
     if (!intervalID) {
         intervalID = setInterval(() => {
-            counter++
-            increment = secondTime(counter, Minute)
-            Second = increment[0]
-            Minute = increment[1]
+            timer = Time(second)
+            second++
+            Minute = timer[0]
+            Second = timer[1]
             document.getElementById("count").innerHTML=[Minute, Second]
         }, 1000)
     }
@@ -42,34 +42,36 @@ function stop() {
 }
 
 function reset() {
-    counter = 0
-    document.getElementById("count").innerHTML=counter
+    second = 0
+    document.getElementById("count").innerHTML=second
     clearInterval(intervalID)
     intervalID = undefined
 }
 
-function secondTime(time, minute) {
-    if (time === 0) {
-        return time
+function secMinSwitch(sec, min) {
+    switch (true) {
+        case sec === 0: {sec = '00'; break}    
+        case sec < 10: {sec = '0' + sec; break}
+        default: return false     
+    }  
+    switch (true) {  
+        case min === 0: {min = '00'; break}
+        case min < 10: {min = '0' + min; break}
+        default: return false
     }
-    if (time < 10) {
-        time = '0' + time
-        return [time, minute]
-    }
-    else if (time >= 60) {
-        minute = minuteTime(time, minute)
-        return [minute[1], minute[0]]
-    }
-    return [time, minute]
+    
+    return [min, sec] 
 }
 
-function minuteTime(seconds, minutes) {
-    seconds -= 60
-    minutes++
-    if (seconds <= 0) {return ['00', minutes]}
-    if (seconds < 10) {
-        minutes = '0' + minutes
+function Time(time) {
+    let minutes = 0
+
+    if (time > 59) {
+        while (time > 59) {
+            minutes++
+            time -= 60
+        }
     }
-    seconds = 0
-    return [seconds, minutes]
+
+    return secMinSwitch(time, minutes)
 }

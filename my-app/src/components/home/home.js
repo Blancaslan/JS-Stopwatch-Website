@@ -36,6 +36,9 @@ function start() {
             document.getElementById("count").innerHTML=[Minute + ':' + Second]
         }, 1000)
     }
+    else {
+        stop()
+    }
 }
 
 function stop() {

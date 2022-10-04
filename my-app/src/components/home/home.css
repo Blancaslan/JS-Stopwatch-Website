@@ -17,14 +17,12 @@
 }
 
 .buttons {
-    position: absolute;
-    bottom: 0;
-    left: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 1000px) and (min-width: 700px) {
-    .backbox {
-        width: 70vw;
-        height: 70vh;
-    }
+.time {
+    margin-top: 5em;
+    font-size: 200%;
 }

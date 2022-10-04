@@ -5,16 +5,18 @@ import React  from 'react';
 
 let second = 0
 let timer
-let Minute
-let Second
+let Minute = '00'
+let Second = '00'
 let intervalID
 
 export default function Home() {
     return(
         <div className="Grid">
             <div className="backbox">
+                <div className="time">
+                    <h1 id="count">{Minute}:{Second}</h1>
+                </div>
                 <div className="buttons">
-                    <h1 id="count">{Minute} : {Second}</h1>
                     <CustomButton text={"Stop"} onClick={stop} backgroundColor="red"></CustomButton>
                     <CustomButton text={"Start"} onClick={start} backgroundColor="lightgreen"></CustomButton>
                     <CustomButton text={"Reset"} onClick={reset} backgroundColor="orange"></CustomButton>
@@ -27,11 +29,11 @@ export default function Home() {
 function start() {
     if (!intervalID) {
         intervalID = setInterval(() => {
-            timer = Time(second)
             second++
+            timer = Time(second)
             Minute = timer[0]
             Second = timer[1]
-            document.getElementById("count").innerHTML=[Minute, Second]
+            document.getElementById("count").innerHTML=[Minute + ':' + Second]
         }, 1000)
     }
 }
@@ -43,7 +45,9 @@ function stop() {
 
 function reset() {
     second = 0
-    document.getElementById("count").innerHTML=second
+    Second = '00'
+    Minute = '00'
+    document.getElementById("count").innerHTML=[Minute + ':' + Second]
     clearInterval(intervalID)
     intervalID = undefined
 }
@@ -51,13 +55,11 @@ function reset() {
 function secMinSwitch(sec, min) {
     switch (true) {
         case sec === 0: {sec = '00'; break}    
-        case sec < 10: {sec = '0' + sec; break}
-        default: return false     
+        case sec < 10: {sec = '0' + sec; break} 
     }  
     switch (true) {  
         case min === 0: {min = '00'; break}
         case min < 10: {min = '0' + min; break}
-        default: return false
     }
     
     return [min, sec] 

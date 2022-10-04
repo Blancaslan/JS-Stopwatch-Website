@@ -10,9 +10,3 @@
     text-align: center;
     padding: 0px;
 }
-
-@media (max-width: 1000px) and (min-width: 700px) {
-    .box {
-        width: 10em;
-    }
-}

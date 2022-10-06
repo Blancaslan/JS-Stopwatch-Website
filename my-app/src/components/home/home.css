@@ -8,21 +8,25 @@
 }
 
 .backbox {
-    width: 60vw;
-    height: 60vh;
+    width: flex;
+    height: flex;
     background-color: darkgrey;
-    position: relative;
     text-align: center;
     border: 7px solid black;
 }
 
 .buttons {
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-bottom: 1em;
 }
 
 .time {
-    margin-top: 5em;
+    margin-top: 3em;
     font-size: 200%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.time > * {
+    display: inline-block;
 }

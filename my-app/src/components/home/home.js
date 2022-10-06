@@ -3,7 +3,7 @@ import CustomButton from '../button/button';
 import React  from 'react';
 
 
-let second = 3500
+let second = 0
 let timer
 let Minute = '00'
 let Second = '00'

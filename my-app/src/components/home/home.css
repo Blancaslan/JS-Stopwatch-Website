@@ -22,6 +22,7 @@
 }
 
 .time {
+    margin-left: 2ch;
     margin-top: 3em;
     font-size: 200%;
     font-family: 'Courier New', Courier, monospace;

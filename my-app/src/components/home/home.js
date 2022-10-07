@@ -10,20 +10,22 @@ let MiliSecond = "00"
 let miliTimer
 let secondIntervalID
 
-
 export default function Home() {
     return(
         <div className="Grid">
             <div className="backbox">
+
                 <div className="time">
                     <h1 id="count">{Minute}:{Second}</h1>
                     <p id="smallCount">{MiliSecond}</p>
                 </div>
+
                 <div className="buttons">
-                    <CustomButton text={"Stop"} onClick={stop} backgroundColor="red"></CustomButton>
-                    <CustomButton text={"Start"} onClick={start} backgroundColor="lightgreen"></CustomButton>
+                    <CustomButton text={"Split"} onClick={stop} backgroundColor="lightblue"></CustomButton>
+                    <CustomButton id="colorchange" id2="startandpause" text={"Start"} onClick={start} backgroundColor="lightgreen"></CustomButton>
                     <CustomButton text={"Reset"} onClick={reset} backgroundColor="orange"></CustomButton>
                 </div>
+
             </div>
         </div>
     )
@@ -31,6 +33,8 @@ export default function Home() {
 
 function start() {
     if (!secondIntervalID) {
+        document.getElementById("startandpause").innerHTML="Pause"
+        document.getElementById("colorchange").style.backgroundColor="orange"
         secondIntervalID = setInterval(() => {
             if (miliTimer < 99){
                 miliTimer++
@@ -48,6 +52,8 @@ function start() {
 
 
     else {
+        document.getElementById("startandpause").innerHTML="Start"
+        document.getElementById("colorchange").style.backgroundColor="lightgreen"
         stop()
     }
 }
@@ -63,8 +69,9 @@ function reset() {
     Minute = '00'
     document.getElementById("count").innerHTML=[Minute + ':' + Second]
     document.getElementById("smallCount").innerHTML=MiliSecond
-    clearInterval(secondIntervalID)
-    secondIntervalID = undefined
+    document.getElementById("startandpause").innerHTML="Start"
+    document.getElementById("colorchange").style.backgroundColor="lightgreen"
+    stop()
 }
 
 function miliSecSwitch(miliTime) {
@@ -75,7 +82,7 @@ function miliSecSwitch(miliTime) {
     return miliTime
 }
 
-function secMinSwitch(sec, ...min) {
+function secMinSwitch(sec, min) {
     switch (true) {
         case sec === 0: {sec = '00'; break}    
         case sec < 10: {sec = '0' + sec; break} 

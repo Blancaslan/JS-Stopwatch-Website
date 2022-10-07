@@ -2,7 +2,6 @@ import './home.css'
 import CustomButton from '../button/button';
 import React  from 'react';
 
-
 let second = 0
 let timer
 let Minute = '00'
